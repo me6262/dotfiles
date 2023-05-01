@@ -79,10 +79,20 @@ _G.packer_plugins = {
     path = "/home/haydenm/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["autoclose.nvim"] = {
+    loaded = true,
+    path = "/home/haydenm/.local/share/nvim/site/pack/packer/start/autoclose.nvim",
+    url = "https://github.com/m4xshen/autoclose.nvim"
+  },
   ["barbar.nvim"] = {
     loaded = true,
     path = "/home/haydenm/.local/share/nvim/site/pack/packer/start/barbar.nvim",
     url = "https://github.com/romgrk/barbar.nvim"
+  },
+  ["blamer.nvim"] = {
+    loaded = true,
+    path = "/home/haydenm/.local/share/nvim/site/pack/packer/start/blamer.nvim",
+    url = "https://github.com/APZelos/blamer.nvim"
   },
   catppuccin = {
     loaded = true,
@@ -123,11 +133,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/haydenm/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-jdtls"] = {
-    loaded = true,
-    path = "/home/haydenm/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
-    url = "https://github.com/mfussenegger/nvim-jdtls"
   },
   ["nvim-lspconfig"] = {
     loaded = true,

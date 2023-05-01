@@ -17,6 +17,8 @@ return require('packer').startup(function(use)
   use('ThePrimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
+  use('APZelos/blamer.nvim')
+  use('m4xshen/autoclose.nvim')
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
   use {
