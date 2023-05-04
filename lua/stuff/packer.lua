@@ -1,3 +1,5 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
@@ -12,10 +14,11 @@ return require('packer').startup(function(use)
 
 
     use { "catppuccin/nvim", as = "catppuccin" }
-    vim.cmd('colorscheme catppuccin-frappe')
 
     use('ThePrimeagen/harpoon')
+    use('ctrlpvim/ctrlp.vim')
     use('mbbill/undotree')
+    use "lukas-reineke/indent-blankline.nvim"
     use('tpope/vim-fugitive')
     use {
         "folke/which-key.nvim",
@@ -66,31 +69,56 @@ return require('packer').startup(function(use)
 
     use 'Mofiqul/vscode.nvim'
 
+    -- disable netrw at the very start of your init.lua (strongly advised)
+
+    -- set termguicolors to enable highlight groups
+    vim.opt.termguicolors = true
+
+    -- empty setup using defaults
+    use('nvim-tree/nvim-tree.lua')
+
+    -- OR setup with some options
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
-    use({
-        "NTBBloodbath/zig-tools.nvim",
-        -- Load zig-tools.nvim only in Zig buffers
-        ft = "zig",
+  --  use({
+  --      "NTBBloodbath/zig-tools.nvim",
+  --      -- Load zig-tools.nvim only in Zig buffers
+  --      ft = "zig",
+  --      config = function()
+  --          -- Initialize with default config
+  --          _G.zigtools_config = require("stuff.zig").zigtools_config
+  --          require("zig-tools").setup(_G.zigtools_config)
+  --          
+  --      end,
+  --      requires = {
+  --          {
+  --              "akinsho/toggleterm.nvim",
+  --              config = function()
+  --                  require("toggleterm").setup()
+  --              end,
+  --          },
+  --          {
+  --              "nvim-lua/plenary.nvim",
+  --              module_pattern = "plenary.*"
+  --          }
+  --      },
+  --  })
+  
+    use 'akinsho/toggleterm.nvim'
+
+    -- Lua
+    use {
+        "folke/trouble.nvim",
+        requires = "nvim-tree/nvim-web-devicons",
         config = function()
-            -- Initialize with default config
-            require("zig-tools").setup()
-            require("zig-tools.config").set(zigtools_config)
-        end,
-        requires = {
-            {
-                "akinsho/toggleterm.nvim",
-                config = function()
-                    require("toggleterm").setup()
-                end,
-            },
-            {
-                "nvim-lua/plenary.nvim",
-                module_pattern = "plenary.*"
+            require("trouble").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
             }
-        },
-    })
+        end
+    }
 
 end)
