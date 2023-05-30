@@ -5,18 +5,41 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+    use "Pocco81/DAPInstall.nvim"
+    use {
+        'kosayoda/nvim-lightbulb',
+        requires = 'antoinemadec/FixCursorHold.nvim',
+    }
+
+    use {"zbirenbaum/copilot.lua"}
+
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         -- or                            , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+    
 
 
     use { "catppuccin/nvim", as = "catppuccin" }
 
     use('ThePrimeagen/harpoon')
     use('ctrlpvim/ctrlp.vim')
+    use {
+        "kelly-lin/ranger.nvim",
+        config = function()
+            require("ranger-nvim").setup({ replace_netrw = true })
+            vim.api.nvim_set_keymap("n", "<leader>ef", "", {
+                noremap = true,
+                callback = function()
+                    require("ranger-nvim").open(true)
+                end,
+            })
+        end,
+    }
     use('mbbill/undotree')
     use "lukas-reineke/indent-blankline.nvim"
     use('tpope/vim-fugitive')
@@ -108,6 +131,7 @@ return require('packer').startup(function(use)
   
     use 'akinsho/toggleterm.nvim'
 
+    use {'nvim-telescope/telescope-ui-select.nvim' }
     -- Lua
     use {
         "folke/trouble.nvim",
@@ -120,5 +144,7 @@ return require('packer').startup(function(use)
             }
         end
     }
+
+    use 'mfussenegger/nvim-jdtls'
 
 end)

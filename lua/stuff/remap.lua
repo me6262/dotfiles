@@ -9,6 +9,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+vim.keymap.set("n", "<leader>o", "o<Esc>")
+vim.keymap.set("n", "<leader>O", "O<Esc>")
 
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
@@ -18,3 +20,15 @@ vim.keymap.set("n", "<leader>tm", "<cmd>ToggleTerm<CR>")
 vim.keymap.set("n", "<leader>s", "<cmd>Telescope<CR>")
 vim.keymap.set("n", "<leader>fa", "<cmd>NvimTreeFocus<CR>")
 vim.keymap.set("n", "<leader>fd", "<cmd>NvimTreeToggle<CR>")
+vim.keymap.set("n", "H", "<Home>")
+vim.keymap.set("n", "L", "<End>")
+vim.cmd [[
+    map <leader>n <Cmd>bp<CR>  
+    map <leader>b <Cmd>bn<CR>
+]]
+
+
+vim.keymap.set("n", "<leader>jx", "<Cmd>TermExec cmd='cd $(git rev-parse --show-toplevel) && javac -d build %:p -cp %:p:h && cd build && java %:t:r && cd ..'<CR>")
+local runCurrentJava = function ()
+    
+end

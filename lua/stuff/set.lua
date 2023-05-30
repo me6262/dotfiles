@@ -8,3 +8,4 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
+vim.cmd('set clipboard+=unnamedplus')
