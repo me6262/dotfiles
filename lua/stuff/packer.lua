@@ -11,7 +11,9 @@ return require('packer').startup(function(use)
         requires = 'antoinemadec/FixCursorHold.nvim',
     }
 
+    use 'mhartington/formatter.nvim'
     use {"zbirenbaum/copilot.lua"}
+    use 'numToStr/Comment.nvim'
 
     use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 

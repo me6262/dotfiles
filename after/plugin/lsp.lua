@@ -26,7 +26,9 @@ require('lspconfig').jdtls.setup{
     autostart = false
 }
 require('lspconfig').zls.setup{
-    cmp = "/home/haydenm/.local/bin/zls"
+    cmd = {"/home/haydenm/zig-builds/zls/zig-out/bin/zls"},
+    -- root_dir = function() returnex end
+
 }
 
 
