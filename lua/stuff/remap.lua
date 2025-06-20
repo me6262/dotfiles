@@ -26,9 +26,3 @@ vim.cmd [[
     map <leader>n <Cmd>bp<CR>  
     map <leader>b <Cmd>bn<CR>
 ]]
-
-
-vim.keymap.set("n", "<leader>jx", "<Cmd>TermExec cmd='cd $(git rev-parse --show-toplevel) && javac -d build %:p -cp %:p:h && cd build && java %:t:r && cd ..'<CR>")
-local runCurrentJava = function ()
-    
-end
