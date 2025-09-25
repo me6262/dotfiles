@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
+
     use { "catppuccin/nvim", as = "catppuccin" }
 
     use('ThePrimeagen/harpoon')
@@ -80,5 +81,6 @@ return require('packer').startup(function(use)
     }
 
     use 'mfussenegger/nvim-jdtls'
+    use 'soulis-1256/eagle.nvim'
 
 end)
