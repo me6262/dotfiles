@@ -1,0 +1,2 @@
+source /home/hayden/.config/gdb/tui_windows.py
+layout many-windows

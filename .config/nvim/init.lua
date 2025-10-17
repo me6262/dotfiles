@@ -1,5 +1,6 @@
 vim.o.winborder = 'rounded'
-require("stuff.packer")
+require("config.lazy")
+-- require("stuff.packer")
 require("stuff.remap")
 require("stuff.set")
 

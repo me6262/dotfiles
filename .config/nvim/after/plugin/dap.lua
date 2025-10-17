@@ -1,0 +1,98 @@
+-- local dap = require("dap")
+-- dap.adapters.cppdbg = {
+--   id = 'cppdbg',
+--   type = 'executable',
+--   command = '/home/hayden/.local/share/nvim/mason/bin/OpenDebugAD7',
+-- }
+--
+--
+--
+--
+--
+-- dap.configurations.cpp = {
+--   {
+--     name = "Launch file",
+--     type = "cpp",
+--     request = "launch",
+--     program = function()
+--       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+--     end,
+--     cwd = '${workspaceFolder}',
+--     stopAtEntry = true,
+--   },
+--   {
+--     name = 'Attach to gdbserver :1234',
+--     type = 'cpp',
+--     request = 'launch',
+--     MIMode = 'gdb',
+--     miDebuggerServerAddress = 'localhost:1234',
+--     miDebuggerPath = '/usr/bin/gdb',
+--     cwd = '${workspaceFolder}',
+--     program = function()
+--       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+--     end,
+--   },
+-- }
+-- vim.api.nvim_create_user_command("Dargs", function (t)
+--
+--     local args = vim.split(vim.fn.expand(t.args), '\n')
+--     dap.run({
+--         type = vim.bo.filetype,
+--         request = 'launch',
+--         name = 'Launch with args',
+--         program = function()
+--             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+--         end,
+--         args = args
+--
+--     })
+-- end, {
+-- 	complete = 'file',
+-- 	nargs = '*'
+-- })
+-- -- dap.adapters.gdb = {
+-- --   type = "executable",
+-- --   command = "gdb",
+-- --   args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
+-- -- }
+-- --
+-- -- local dap = require("dap")
+-- -- dap.configurations.c = {
+-- --   {
+-- --     name = "Launch",
+-- --     type = "gdb",
+-- --     request = "launch",
+-- --     program = function()
+-- --       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+-- --     end,
+-- --     args = {}, -- provide arguments if needed
+-- --     cwd = "${workspaceFolder}",
+-- --     stopAtBeginningOfMainSubprogram = false,
+-- --   },
+-- --   {
+-- --     name = "Select and attach to process",
+-- --     type = "gdb",
+-- --     request = "attach",
+-- --     program = function()
+-- --       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+-- --     end,
+-- --     pid = function()
+-- --       local name = vim.fn.input('Executable name (filter): ')
+-- --       return require("dap.utils").pick_process({ filter = name })
+-- --     end,
+-- --     cwd = '${workspaceFolder}'
+-- --   },
+-- --   {
+-- --     name = 'Attach to gdbserver :1234',
+-- --     type = 'gdb',
+-- --     request = 'attach',
+-- --     target = 'localhost:1234',
+-- --     program = function()
+-- --       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+-- --     end,
+-- --     cwd = '${workspaceFolder}'
+-- --   }
+-- -- }
+-- -- dap.configurations.cpp = dap.configurations.c
+-- -- dap.configurations.rust = dap.configurations.c
+-- --
