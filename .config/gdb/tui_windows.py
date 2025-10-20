@@ -112,7 +112,7 @@ class ScrollableWindow:
 class LocalsWindow(ScrollableWindow):
     name = "locals"
     title = "Local Variables"
-    gdb_command = "info locals"
+    gdb_command = "python import gdb ; print(gdb.execute('info args')) ; print(gdb.execute('info local'))"
 
 
 class BacktraceWindow(ScrollableWindow):
@@ -137,8 +137,8 @@ gdb.execute(
     " ".join(
         (
             "tui new-layout many-windows",
-            "{-horizontal {src 2 status 0 cmd 1} 3",
-            "{locals 1 backtrace 1 threads 1} 2} 1",
+            "{-horizontal {status 0 cmd 1} 3",
+            "{locals 1 backtrace 1 breakpoints 1} 2} 1",
         )
     )
 )
@@ -148,7 +148,7 @@ gdb.execute(
         (
             "tui new-layout many-windows-split",
             "{-horizontal {src 2 asm 2 status 0 cmd 1} 3",
-            "{locals 1 backtrace 1 threads 1} 2} 1",
+            "{locals 1 backtrace 1 breakpoints 1} 2} 1",
         )
     )
 )

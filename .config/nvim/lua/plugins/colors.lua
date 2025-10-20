@@ -1,14 +1,24 @@
 return {
-{
-  "EL-MASTOR/bufferlist.nvim",
-  lazy = true,
-  keys = { { "<Leader>b", ':BufferList<CR>', desc = "Open bufferlist" } },
-  dependencies = "nvim-tree/nvim-web-devicons",
-  cmd = "BufferList",
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  },
-}
-}
+    {
+        "kelly-lin/ranger.nvim",
+        config = function()
+            require("ranger-nvim").setup(
+                { 
+                    replace_netrw = true,
+                    ui = {
+                        border = "rounded",
+                        height = 0.85,
+                        width = 0.85,
+                        x = 0.5,
+                        y = 0.5,
+                    }
+                })
+                vim.api.nvim_set_keymap("n", "<leader>ef", "", {
+                    noremap = true,
+                    callback = function()
+                        require("ranger-nvim").open(true)
+                    end,
+                })
+            end,
+        }
+    }

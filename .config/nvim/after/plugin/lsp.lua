@@ -1,10 +1,9 @@
 
 -- (Optional) Configure lua language server for neovim
 
-
+vim.lsp.enable('gdscript')
 vim.lsp.enable('lua_ls')
 vim.lsp.config['clangd'] = {
-
     cmd = {"clangd", "--function-arg-placeholders=false"}
 }
 vim.lsp.enable('clangd')
