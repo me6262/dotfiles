@@ -4,7 +4,7 @@ return {
         config = function()
             require("ranger-nvim").setup(
                 { 
-                    replace_netrw = true,
+                    replace_netrw = false,
                     ui = {
                         border = "rounded",
                         height = 0.85,

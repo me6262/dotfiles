@@ -137,7 +137,7 @@ gdb.execute(
     " ".join(
         (
             "tui new-layout many-windows",
-            "{-horizontal {status 0 cmd 1} 3",
+            "{-horizontal {status 0 src 2 cmd 1} 3",
             "{locals 1 backtrace 1 breakpoints 1} 2} 1",
         )
     )
