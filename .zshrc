@@ -64,9 +64,11 @@ eval "$(zoxide init --cmd cd zsh)"
 
 
 # ZVM
+
 export ZVM_INSTALL="$HOME/.zvm/self"
 export PATH="$PATH:$HOME/.zvm/bin"
 export PATH="$PATH:$ZVM_INSTALL/"
 
 # Created by `pipx` on 2025-10-16 02:45:42
 export PATH="$PATH:/home/hayden/.local/bin"
+. "$HOME/.cargo/env"
