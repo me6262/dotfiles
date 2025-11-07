@@ -8,7 +8,7 @@
 # gdb python3 man most eza starship btop zellij poop valgrind distrobox delta nmtui fastfetch cmake llvm
 
 
-apt_pkglist="stow tmux npm ranger github-cli gcc g++ fzf zsh fish gdb python3 valgrind fastfetch cmake btop man most vim curl"
+apt_pkglist="stow tmux npm ranger gcc g++ fzf zsh fish gdb python3 valgrind cmake btop man most vim curl"
 pacman_pkglist="stow tmux npm ranger github-cli gcc base-devel fzf zsh fish gdb python3 valgrind fastfetch cmake btop man most vim curl"
 dnf_pkglist="stow tmux npm ranger gh gcc g++ fzf zsh fish gdb python3 valgrind fastfetch cmake btop man most vim curl"
 
@@ -45,7 +45,7 @@ elif [[ "$distro" == "Arch Linux" || "$distro" == "Manjaro" ]]; then
 elif [[ "$distro" == "openSUSE" ]]; then
     echo "zypper"
 fi
-if [ -v CARGO_HOME ]; then
+if command -v cargo; then
     echo "cargo already installed"
 else
     echo "cargo not installed/defined on path. installing..."
@@ -55,15 +55,18 @@ fi
 echo "Installing relevant crates"
 export PATH=$PATH:$HOME/.cargo/bin
 #installing this means we can directly download binaries instead of going through all the rust bullshit
-cargo install cargo-binstall
+if command -v cargo-binstall; then
+    cargo install cargo-binstall
+fi
 . "$HOME/.cargo/env"
-cargo-binstall -y zoxide ncspot bat bob ripgrep yazi eza mprocs delta just starship
+cargo-binstall -y zoxide gitui bat bob-nvim ripgrep eza mprocs git-delta just starship
 bob use nightly
 
 mkdir ~/Documents/projects
+flatpak install flathub io.github.hrkfdn.ncspot
 
 if [ $(echo $SHELL | grep zsh -c) -eq 0 ]; then
     chsh -s $(which zsh) $USER
-    zsh git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    zsh -c "git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 fi
 stow .
