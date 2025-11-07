@@ -61,4 +61,9 @@ cargo-binstall -y zoxide ncspot bat bob ripgrep yazi eza mprocs delta just stars
 bob use nightly
 
 mkdir ~/Documents/projects
+
+if [ $(echo $SHELL | grep zsh -c) -eq 0 ]; then
+    chsh -s $(which zsh) $USER
+    zsh git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+fi
 stow .

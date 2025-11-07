@@ -4,9 +4,6 @@ export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 EDITOR=nvim
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -17,7 +14,6 @@ fi
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
     git
     zsh-autosuggestions
@@ -60,7 +56,6 @@ source $ZSH/oh-my-zsh.sh
 # To initialize zoxide, add this to your shell configuration file (usually ~/.zshrc):
 #
 eval "$(zoxide init --cmd cd zsh)"
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
 # ZVM
@@ -72,3 +67,4 @@ export PATH="$PATH:$ZVM_INSTALL/"
 # Created by `pipx` on 2025-10-16 02:45:42
 export PATH="$PATH:/home/hayden/.local/bin"
 . "$HOME/.cargo/env"
+eval "$(starship init zsh)"
