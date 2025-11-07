@@ -8,12 +8,12 @@
 # gdb python3 man most eza starship btop zellij poop valgrind distrobox delta nmtui fastfetch cmake llvm
 
 
-apt_pkglist = "stow tmux npm ranger github-cli gcc g++ fzf zsh fish gdb python3 valgrind fastfetch cmake btop man most vim curl"
-pacman_pkglist = "stow tmux npm ranger github-cli gcc base-devel fzf zsh fish gdb python3 valgrind fastfetch cmake btop man most vim curl"
-dnf_pkglist = "stow tmux npm ranger gh gcc g++ fzf zsh fish gdb python3 valgrind fastfetch cmake btop man most vim curl"
+apt_pkglist="stow tmux npm ranger github-cli gcc g++ fzf zsh fish gdb python3 valgrind fastfetch cmake btop man most vim curl"
+pacman_pkglist="stow tmux npm ranger github-cli gcc base-devel fzf zsh fish gdb python3 valgrind fastfetch cmake btop man most vim curl"
+dnf_pkglist="stow tmux npm ranger gh gcc g++ fzf zsh fish gdb python3 valgrind fastfetch cmake btop man most vim curl"
 
 
-package_managers = ("apt", "dnf", "zypper", "pacman")
+package_managers=("apt", "dnf", "zypper", "pacman")
 echo "Installed package managers on this Linux system:"
 for manager in "${package_managers[@]}"; do
     if command -v "$manager" > /dev/null 2>&1; then
@@ -27,7 +27,7 @@ if [[ -f /etc/os-release ]]; then
 else
     distro="*Unknown*"
 fi
-echgo "Detected distro: $distro"
+echo "Detected distro: $distro"
 
 # Default package manager, if any
 echo -n "Default distro package manager: "
