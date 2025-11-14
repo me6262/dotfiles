@@ -3,10 +3,12 @@
 
 vim.lsp.enable('gdscript')
 vim.lsp.enable('lua_ls')
+
 vim.lsp.config['clangd'] = {
     cmd = {"clangd", "--function-arg-placeholders=false"}
 }
 vim.lsp.enable('clangd')
+vim.lsp.enable('r-languageserver')
 vim.lsp.enable('clang-format')
 vim.lsp.enable('basedpyright')
 vim.lsp.enable('rust_analyzer')

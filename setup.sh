@@ -64,9 +64,10 @@ bob use nightly
 
 mkdir ~/Documents/projects
 flatpak install flathub io.github.hrkfdn.ncspot
-
-if [ $(echo $SHELL | grep zsh -c) -eq 0 ]; then
-    chsh -s $(which zsh) $USER
-    zsh -c "git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ $(echo $SHELL | grep fish -c) -eq 0 ]; then
+    chsh -s $(which fish) $USER
+    fish "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
+    # zsh -c "git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 fi
 stow .

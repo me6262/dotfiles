@@ -1,21 +1,28 @@
 return {
-    {
-
-        'hrsh7th/nvim-cmp',
-        dependencies = {
-            'hrsh7th/cmp-nvim-lsp-signature-help',
-            'onsails/lspkind.nvim',
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-path',
-            'hrsh7th/cmp-cmdline',
-            'saadparwaiz1/cmp_luasnip',
-            'L3MON4D3/LuaSnip',
-            "ray-x/lsp_signature.nvim",
-            'hrsh7th/cmp-nvim-lua'
-        },
-        event = "InsertEnter",
-        opts = function()
+    --     {
+        --         'onsails/lspkind.nvim',
+        --         opts = {
+            --             mode = 'symbol'
+            --         }
+            -- },
+            {
+                -- maybe remove this
+                'hrsh7th/nvim-cmp',
+                dependencies = {
+                    'hrsh7th/cmp-nvim-lsp-signature-help',
+                    'onsails/lspkind.nvim',
+                    'hrsh7th/cmp-nvim-lsp',
+                    "R-nvim/cmp-r",
+                    'hrsh7th/cmp-buffer',
+                    'hrsh7th/cmp-path',
+                    'hrsh7th/cmp-cmdline',
+                    'saadparwaiz1/cmp_luasnip',
+                    'L3MON4D3/LuaSnip',
+                    "ray-x/lsp_signature.nvim",
+                    'hrsh7th/cmp-nvim-lua'
+                },
+                event = "InsertEnter",
+                opts = function()
 
             vim.api.nvim_set_hl(0, 'CmpItemAbbrDeprecated', { bg='NONE', strikethrough=true, fg='#808080' })
             -- blue
@@ -54,6 +61,7 @@ return {
                 }),
                 matching = { disallow_symbol_nonprefix_matching = false }
             })
+            require'cmp_r'.setup()
             return {
                 formatting = {
 
@@ -108,6 +116,7 @@ return {
                 sources = cmp.config.sources({
                     {name = 'nvim_lua'},
                     { name = 'nvim_lsp' },
+                    {name = "cmp_r"},
                     -- { name = 'vsnip' }, -- For vsnip users.
                     { name = 'luasnip' }, -- For luasnip users.
                     -- { name = 'ultisnips' }, -- For ultisnips users.

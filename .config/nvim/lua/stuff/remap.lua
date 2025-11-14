@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pf", vim.cmd.Ex)
 vim.cmd("cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -22,12 +22,7 @@ vim.keymap.set("n", "<leader>O", "O<Esc>")
 
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
-vim.keymap.set("n", "<leader>tr", "<cmd>TroubleToggle workspace_diagnostics<CR>")
-vim.keymap.set("n", "<leader>td", "<cmd>TroubleToggle document_diagnostics<CR>")
-vim.keymap.set("n", "<leader>tm", "<cmd>ToggleTerm<CR>")
 vim.keymap.set("n", "<leader>s", "<cmd>Telescope<CR>")
-vim.keymap.set("n", "<leader>fa", "<cmd>NvimTreeFocus<CR>")
-vim.keymap.set("n", "<leader>fd", "<cmd>NvimTreeToggle<CR>")
 vim.keymap.set("n", "H", "<Home>")
 vim.keymap.set("n", "L", "<End>")
 vim.cmd [[
@@ -47,6 +42,11 @@ vim.keymap.set('n', 'K', function()
   vim.lsp.buf.hover { border = "rounded", max_height = 25, max_width = 120 }
 end, { desc = "Hover documentation" })
 
+
+vim.keymap.set('i', '<c-space>', function()
+
+    vim.lsp.completion.get()
+end)
 vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
 vim.keymap.set("n", "<leader>k", function() vim.diagnostic.open_float() end, opts)
 vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)

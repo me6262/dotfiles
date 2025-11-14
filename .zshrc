@@ -21,6 +21,10 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+alias ls="eza --icons=always"
+alias lt="eza --tree --icons=always"
+
+alias ll="eza --icons=always -l"
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
