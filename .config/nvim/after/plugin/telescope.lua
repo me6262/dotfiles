@@ -4,7 +4,8 @@ vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
 vim.keymap.set('n', 'grg', builtin.live_grep, {})
 vim.keymap.set('n', 'gO', builtin.lsp_document_symbols, {})
 vim.keymap.set('n', 'gwo', builtin.lsp_workspace_symbols, {})
-vim.keymap.set('n', 'gdi', builtin.diagnostics, {})
+vim.keymap.set('n', 'gwi', builtin.diagnostics, {})
+vim.keymap.set('n', 'fb', builtin.buffers, {})
 
 
 

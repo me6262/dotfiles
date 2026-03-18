@@ -2,12 +2,17 @@
 -- (Optional) Configure lua language server for neovim
 
 vim.lsp.enable('gdscript')
+vim.lsp.enable('gh_actions_ls')
 vim.lsp.enable('lua_ls')
+vim.lsp.enable('kotlin_lsp')
+vim.lsp.enable('bashls')
+vim.lsp.enable('jdtls')
 
 vim.lsp.config['clangd'] = {
     cmd = {"clangd", "--function-arg-placeholders=false"}
 }
 vim.lsp.enable('clangd')
+vim.lsp.enable('pylsp')
 vim.lsp.enable('r-languageserver')
 vim.lsp.enable('clang-format')
 vim.lsp.enable('basedpyright')
@@ -23,6 +28,7 @@ local opts = {buffer = bufnr, remap = false}
 local hoveropts = {
     border = "single"
 }
+
 
 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 -- vim.keymap.set("n", "gf", function() vim.lsp.formatexpr() end, opts)
