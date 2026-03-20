@@ -1,22 +1,45 @@
--- local vsc = require'lualine.themes.vscode'
--- local cat_main_bgc = "#1E1E2E"
--- local vsc_main_bgc = "#1F1F1F"
--- local main_bgc = vsc_main_bgc
--- vsc.normal.c.bg = main_bgc
--- vsc.insert.c.bg = main_bgc
--- vsc.command.c.bg = main_bgc
--- vsc.terminal.c.bg = main_bgc
--- vsc.replace.c.bg = main_bgc
--- vsc.inactive.c.bg = main_bgc
+local mode_map = {
+    ['NORMAL'] = 'N',
+    ['O-PENDING'] = 'N?',
+    ['INSERT'] = 'I',
+    ['VISUAL'] = 'V',
+    ['V-BLOCK'] = 'VB',
+    ['V-LINE'] = 'VL',
+    ['V-REPLACE'] = 'VR',
+    ['REPLACE'] = 'R',
+    ['COMMAND'] = '!',
+    ['SHELL'] = 'SH',
+    ['TERMINAL'] = 'T',
+    ['EX'] = 'X',
+    ['S-BLOCK'] = 'SB',
+    ['S-LINE'] = 'SL',
+    ['SELECT'] = 'S',
+    ['CONFIRM'] = 'Y?',
+    ['MORE'] = 'M',
+}
+
+local function clock()
+   return os.date("%I:%M%P")
+end
+
 require('lualine').setup({
-    -- options = {
-    --     component_separators = '',
-    --     section_separators = { left = '', right = '' },
-    -- },
+    sections = {
+        lualine_a = { {'mode', fmt = function(s) return mode_map[s] or s end} },
+        lualine_b = { 'branch' },
+        lualine_c = { 'diagnostics', 'filename' },
+        lualine_x = { 'filetype' },
+        lualine_y = { clock },
+        lualine_z = { 'location' },
+    },
+    options = {
+        component_separators = '',
+        section_separators = { left = '', right = '' },
+    },
+})
+
     -- sections = {
     --     lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
     --     lualine_b = { 'filename', 'branch', 'diagnostics' },
-    --     lualine_c = {
     --         '%=', --[[ add your center components here in place of this comment ]]
     --     },
     --     lualine_x = {},
@@ -35,4 +58,3 @@ require('lualine').setup({
     -- },
     -- tabline = {},
     -- extensions = {},
-})

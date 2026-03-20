@@ -1,33 +1,31 @@
 return {
+        { "catppuccin/nvim", name = "catppuccin", lazy = true },
+        {'Mofiqul/vscode.nvim',
+        opts = function ()
+            local c = require('vscode.colors').get_colors()
+            return {
+                group_overrides = {
+                    TelescopeNormal = {bg = c.vscLeftDark},
+                    TelescopePromptNormal = {bg = c.vscLeftMid},
+                    TelescopePromptBorder = {bg = c.vscLeftMid},
+                    TelescopePromptTitle = { bg = c.vscLeftMid},
+                    TelescopeResultsBorder = {bg = c.vscLeftDark},
+                    TelescopeResultsTitle = { bg = c.vscLeftDark},
+                    TelescopePreviewBorder = {bg = c.vscTabOther},
+                    TelescopePreviewTitle = { bg = c.vscTabOther},
+                    TelescopePreviewNormal = {bg = c.vscTabOther},
+
+                }
+            }
+        end
+    },
+    "morhetz/gruvbox",
     {
-        "morhetz/gruvbox",
-        "kelly-lin/ranger.nvim",
+        "startup-nvim/startup.nvim",
+        dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-file-browser.nvim" },
         config = function()
-            require("ranger-nvim").setup(
-                { 
-                    replace_netrw = false,
-                    ui = {
-                        border = "rounded",
-                        height = 0.85,
-                        width = 0.85,
-                        x = 0.5,
-                        y = 0.5,
-                    }
-                })
-                vim.api.nvim_set_keymap("n", "<leader>ef", "", {
-                    noremap = true,
-                    callback = function()
-                        require("ranger-nvim").open(true)
-                    end,
-                })
-            end,
-        },
-        {
-            "startup-nvim/startup.nvim",
-            dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope-file-browser.nvim" },
-            config = function()
-                require "startup".setup()
-            end
-        },
-        { 'prichrd/netrw.nvim', opts = {} },
-    }
+            require "startup".setup()
+        end
+    },
+    { 'prichrd/netrw.nvim', opts = {} },
+}
