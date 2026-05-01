@@ -15,7 +15,18 @@ vim.pack.add({
     git('Mofiqul/vscode.nvim'),
     -- {source = git('catppuccin/nvim'), name = "catppuccin"},
 
+    git('hrsh7th/cmp-nvim-lsp-signature-help'),
+    git('hrsh7th/cmp-nvim-lsp'),
+    git("R-nvim/cmp-r"),
+    git('hrsh7th/cmp-buffer'),
+    git('hrsh7th/cmp-path'),
+    git('hrsh7th/cmp-cmdline'),
 
+    git('saadparwaiz1/cmp_luasnip'),
+    git('L3MON4D3/LuaSnip'),
+    git('ray-x/lsp_signature.nvim'),
+    git('hrsh7th/cmp-nvim-lua'),
+    git('hrsh7th/nvim-cmp'),
     git('nvim-lua/plenary.nvim'),
     git('prichrd/netrw.nvim'),
     git('ThePrimeagen/harpoon'),
