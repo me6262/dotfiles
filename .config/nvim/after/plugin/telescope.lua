@@ -1,9 +1,28 @@
+local act = require'telescope.actions'
+require('telescope').setup({
+    defaults = {
+        border = true,
+        layout_config = {
+            horizontal = {
+                prompt_position = 'top',
+            }
+        },
+        borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+        mappings = {
+            i = {
+                ["<C-k>"] = act.move_selection_previous,
+                ["<C-j>"] = act.move_selection_next
+            }
+        }
+    }
+})
 local themes = require "telescope.themes"
 local builtin = require('telescope.builtin')
 local opts = {
     border = false,
     layout_config = {height = 0.30}
 }
+vim.keymap.set('n', '<leader>s', builtin.builtin, {})
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
 vim.keymap.set('n', 'grg', builtin.live_grep, {})

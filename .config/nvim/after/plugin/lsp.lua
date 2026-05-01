@@ -8,6 +8,8 @@ vim.lsp.enable('kotlin_lsp')
 vim.lsp.enable('bashls')
 vim.lsp.enable('jdtls')
 
+-- vim.lsp.enable('asm_lsp')
+
 vim.lsp.config['clangd'] = {
     cmd = {"clangd", "--function-arg-placeholders=false"}
 }
@@ -28,7 +30,7 @@ local opts = {buffer = bufnr, remap = false}
 local hoveropts = {
     border = "single"
 }
-
+vim.opt.completeopt = { "menuone", "noselect", "popup" }
 
 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 -- vim.keymap.set("n", "gf", function() vim.lsp.formatexpr() end, opts)

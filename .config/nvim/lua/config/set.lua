@@ -8,6 +8,7 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
 vim.opt.tabstop = 4
+vim.opt.splitright = true
 vim.opt.softtabstop = 4
 vim.g.netrw_banner = 0
 vim.opt.signcolumn = "yes"

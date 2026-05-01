@@ -13,9 +13,9 @@ vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 
-require('dapui').setup()
+-- require('dapui').setup()
 -- dap
-vim.keymap.set("n", '<leader>vdo', require("dapui").toggle)
+-- vim.keymap.set("n", '<leader>vdo', require("dapui").toggle)
 
 vim.keymap.set("n", "<leader>o", "o<Esc>")
 vim.keymap.set("n", "<leader>O", "O<Esc>")
@@ -28,19 +28,17 @@ vim.keymap.set("n", "L", "<End>")
 vim.cmd [[
     map <leader>n <Cmd>bp<CR>  
     map <leader>b <Cmd>bn<CR>
+    cnoreabbrev vman vert Man
 ]]
 
 local opts = {buffer = bufnr, remap = false}
-
-local hoveropts = {
-    border = "single"
-}
 
 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 -- vim.keymap.set("n", "gf", function() vim.lsp.formatexpr() end, opts)
 vim.keymap.set('n', 'K', function()
   vim.lsp.buf.hover { border = "rounded", max_height = 25, max_width = 120 }
 end, { desc = "Hover documentation" })
+
 
 
 vim.keymap.set('i', '<c-space>', function()
